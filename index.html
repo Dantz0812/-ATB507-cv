@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="ATB507 的个人作品集，记录设计、产品与技术实践。" />
+    <title>ATB507 / Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="site-header">
+        <a class="brand" href="#top" aria-label="回到首页"><span>ATB</span><i>507</i></a>
+        <nav class="main-nav" aria-label="主导航">
+          <a href="#work">作品</a>
+          <a href="#experience">经历</a>
+          <a href="#about">关于</a>
+        </nav>
+        <a class="header-contact" href="mailto:hello@atb507.com">联系我 <span>↗</span></a>
+        <button class="menu-toggle" type="button" aria-label="打开菜单" aria-expanded="false">☰</button>
+      </header>
+
+      <main id="top">
+        <section class="hero section-grid" aria-labelledby="hero-title">
+          <div class="hero-copy">
+            <p class="eyebrow" id="hero-eyebrow"></p>
+            <h1 id="hero-title"></h1>
+            <p class="hero-intro" id="hero-intro"></p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="#work">查看作品 <span>↓</span></a>
+              <a class="button button-quiet" id="hero-email" href="mailto:hello@atb507.com">hello@atb507.com <span>↗</span></a>
+            </div>
+          </div>
+          <div class="hero-visual" aria-label="个人简介摘要">
+            <div class="orbit orbit-one"></div>
+            <div class="orbit orbit-two"></div>
+            <div class="hero-signal"><span>可用性</span><strong>NOW</strong></div>
+            <div class="hero-card hero-card-main"><span class="card-label">CURRENTLY</span><strong id="hero-currently"></strong><span class="card-arrow">↗</span></div>
+            <div class="hero-card hero-card-meta"><span class="card-label">BASE</span><strong id="hero-location"></strong></div>
+            <div class="hero-sticker">DESIGN<br />WITH<br /><em>intent</em></div>
+          </div>
+        </section>
+
+        <section class="ticker" aria-label="工作关键词">
+          <div id="ticker-content"></div>
+        </section>
+
+        <section class="content-section" id="work" aria-labelledby="work-title">
+          <div class="section-heading"><div><p class="eyebrow">01 / selected work</p><h2 id="work-title">把复杂的事，<br /><em>做得清楚。</em></h2></div><p class="section-note">一些关于产品、系统和人与人之间<br />如何更好协作的实验。</p></div>
+          <div class="filter-row" id="filters" role="tablist" aria-label="作品筛选"></div>
+          <div class="project-grid" id="projects"></div>
+        </section>
+
+        <section class="content-section experience-section" id="experience" aria-labelledby="experience-title">
+          <div class="section-heading"><div><p class="eyebrow">02 / experience</p><h2 id="experience-title">一路在<br /><em>学习成为。</em></h2></div><p class="section-note">不同团队、不同阶段，<br />始终对好问题保持敏感。</p></div>
+          <div class="timeline" id="experience-list"></div>
+        </section>
+
+        <section class="content-section about-section" id="about" aria-labelledby="about-title">
+          <div class="about-grid"><div><p class="eyebrow">03 / beyond the cv</p><h2 id="about-title">工作之外，<br /><em>也要保持好奇。</em></h2></div><div class="about-copy" id="about-copy"></div></div>
+          <div class="skill-grid" id="skills"></div>
+        </section>
+
+        <section class="contact-section" id="contact" aria-labelledby="contact-title">
+          <p class="eyebrow">04 / say hello</p><h2 id="contact-title">有个想法？<br /><em>聊聊看。</em></h2>
+          <div class="contact-footer"><p id="contact-note"></p><a class="button button-primary" id="contact-email" href="mailto:hello@atb507.com">发一封邮件 <span>↗</span></a></div>
+        </section>
+      </main>
+
+      <footer class="site-footer"><span>© <span id="year"></span> ATB507</span><span>Designed & built with curiosity</span><a href="#top">回到顶部 ↑</a></footer>
+    </div>
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
