@@ -48,9 +48,57 @@ function setupMenu() {
   nav.addEventListener('click', () => document.body.classList.remove('menu-open'));
 }
 
+function setupMotionEffects() {
+  const hero = document.querySelector('.hero-visual');
+  if (hero) {
+    hero.addEventListener('pointermove', (event) => {
+      const rect = hero.getBoundingClientRect();
+      const x = (event.clientX - rect.left) / rect.width - 0.5;
+      const y = (event.clientY - rect.top) / rect.height - 0.5;
+      hero.style.setProperty('--tilt-x', `${(x * 10).toFixed(2)}deg`);
+      hero.style.setProperty('--tilt-y', `${(-y * 9).toFixed(2)}deg`);
+    });
+    hero.addEventListener('pointerleave', () => {
+      hero.style.setProperty('--tilt-x', '0deg');
+      hero.style.setProperty('--tilt-y', '0deg');
+    });
+  }
+
+  const strip = document.querySelector('.palmo-strip__track');
+  if (strip) {
+    let dragging = false;
+    let startX = 0;
+    let scrollLeft = 0;
+
+    strip.addEventListener('pointerdown', (event) => {
+      dragging = true;
+      startX = event.clientX;
+      scrollLeft = strip.scrollLeft;
+      strip.setPointerCapture(event.pointerId);
+      strip.style.animationPlayState = 'paused';
+    });
+
+    strip.addEventListener('pointermove', (event) => {
+      if (!dragging) return;
+      const delta = event.clientX - startX;
+      strip.scrollLeft = scrollLeft - delta;
+    });
+
+    const stopDrag = () => {
+      if (!dragging) return;
+      dragging = false;
+      strip.style.animationPlayState = 'running';
+    };
+
+    strip.addEventListener('pointerup', stopDrag);
+    strip.addEventListener('pointerleave', stopDrag);
+  }
+}
+
 renderProfile();
 renderProjects();
 renderExperience();
 renderAbout();
 setupMenu();
+setupMotionEffects();
 byId('year').textContent = new Date().getFullYear();
